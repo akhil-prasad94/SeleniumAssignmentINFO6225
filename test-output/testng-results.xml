@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="45095" started-at="2020-11-12T20:28:26Z" finished-at="2020-11-12T20:29:11Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="45095" started-at="2020-11-12T20:28:26Z" finished-at="2020-11-12T20:29:11Z">
+      <class name="com.project.BaseObject.ScenarioThree">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.project.BaseObject.ScenarioThree@2aa5fe93]" name="beforeMethod" is-config="true" duration-ms="5833" started-at="2020-11-12T20:28:55Z" finished-at="2020-11-12T20:29:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="seleniumAssignmentScenario_3()[pri:0, instance:com.project.BaseObject.ScenarioThree@2aa5fe93]" name="seleniumAssignmentScenario_3" duration-ms="1482" started-at="2020-11-12T20:29:01Z" finished-at="2020-11-12T20:29:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seleniumAssignmentScenario_3 -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.project.BaseObject.ScenarioThree@2aa5fe93]" name="afterMethod" is-config="true" duration-ms="662" started-at="2020-11-12T20:29:03Z" finished-at="2020-11-12T20:29:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.project.BaseObject.ScenarioThree -->
+      <class name="com.project.BaseObject.ScenarioOne">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.project.BaseObject.ScenarioOne@3a079870]" name="beforeMethod" is-config="true" duration-ms="6249" started-at="2020-11-12T20:28:26Z" finished-at="2020-11-12T20:28:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="seleniumAssignmentScenario_1()[pri:0, instance:com.project.BaseObject.ScenarioOne@3a079870]" name="seleniumAssignmentScenario_1" duration-ms="1123" started-at="2020-11-12T20:28:32Z" finished-at="2020-11-12T20:28:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seleniumAssignmentScenario_1 -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.project.BaseObject.ScenarioOne@3a079870]" name="afterMethod" is-config="true" duration-ms="983" started-at="2020-11-12T20:28:33Z" finished-at="2020-11-12T20:28:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.project.BaseObject.ScenarioOne -->
+      <class name="com.project.BaseObject.ScenarioFour">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.project.BaseObject.ScenarioFour@5c1a8622]" name="beforeMethod" is-config="true" duration-ms="5813" started-at="2020-11-12T20:29:03Z" finished-at="2020-11-12T20:29:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="seleniumAssignmentScenario_4()[pri:0, instance:com.project.BaseObject.ScenarioFour@5c1a8622]" name="seleniumAssignmentScenario_4" duration-ms="1134" started-at="2020-11-12T20:29:09Z" finished-at="2020-11-12T20:29:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seleniumAssignmentScenario_4 -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.project.BaseObject.ScenarioFour@5c1a8622]" name="afterMethod" is-config="true" duration-ms="645" started-at="2020-11-12T20:29:10Z" finished-at="2020-11-12T20:29:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.project.BaseObject.ScenarioFour -->
+      <class name="com.project.BaseObject.ScenarioTwo">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.project.BaseObject.ScenarioTwo@3b2cf7ab]" name="beforeMethod" is-config="true" duration-ms="19246" started-at="2020-11-12T20:28:34Z" finished-at="2020-11-12T20:28:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="seleniumAssignmentScenario_2()[pri:0, instance:com.project.BaseObject.ScenarioTwo@3b2cf7ab]" name="seleniumAssignmentScenario_2" duration-ms="1242" started-at="2020-11-12T20:28:53Z" finished-at="2020-11-12T20:28:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seleniumAssignmentScenario_2 -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.project.BaseObject.ScenarioTwo@3b2cf7ab]" name="afterMethod" is-config="true" duration-ms="649" started-at="2020-11-12T20:28:55Z" finished-at="2020-11-12T20:28:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.project.BaseObject.ScenarioTwo -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
