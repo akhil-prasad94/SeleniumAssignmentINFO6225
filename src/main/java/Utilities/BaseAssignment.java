@@ -19,7 +19,7 @@ public class BaseAssignment {
 	  return driver = new ChromeDriver();
 	}
 
-	public static void makeDirectoryandScreenshot(WebDriver driver, String testScenarioName) throws IOException {
+	public static void makeScreenshotFolder(WebDriver driver, String testScenarioName) throws IOException {
 		String finalpath = System.getProperty("user.dir")+"\\"+testScenarioName;
 		filess = new File(finalpath);
 		filess.mkdir();

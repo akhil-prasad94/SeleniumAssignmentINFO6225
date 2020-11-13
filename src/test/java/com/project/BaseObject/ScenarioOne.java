@@ -14,9 +14,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import Utilities.BaseAssignment;
 
@@ -27,21 +30,22 @@ public class ScenarioOne {
 	 String baseurl;
 	 String scen_number = "scenario1";
 	 
-  @BeforeMethod
-  public void beforeMethod() throws IOException {
+  @Parameters({"northeasternURL"}) 
+  @BeforeClass
+  public void beforeMethod(String nUrl) throws IOException {
 	 
 	  driver = BaseAssignment.returnDriver();
 	  driver.manage().window().maximize();
-	  driver.get("http://s3.amazonaws.com/co.tulip.cdn/memtracking/index.html");
-	  BaseAssignment.makeDirectoryandScreenshot(driver, "scenario1");
+	  driver.get(nUrl);
+	  BaseAssignment.makeScreenshotFolder(driver, "scenario1");
   }
   
   @Test
-  public void seleniumAssignmentScenario_1() throws InterruptedException, IOException {
-	  BaseAssignment.takeScreenShot(driver, scen_number, 4);
+  public void addOptsMyFavorites() throws InterruptedException, IOException {
+	  BaseAssignment.takeScreenShot(driver, scen_number, 4); // Use when screenshot needed, increment number
+	  BaseAssignment.takeScreenShot(driver, scen_number, 8); 
 	  
-	  
-	  
+	  Assert.assertEquals(1, 0, "Nope");
 	  
   }
 

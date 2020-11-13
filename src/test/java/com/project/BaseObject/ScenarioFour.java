@@ -23,7 +23,7 @@ public class ScenarioFour {
 	  driver = BaseAssignment.returnDriver();
 	  driver.manage().window().maximize();
 	  driver.get("http://s3.amazonaws.com/co.tulip.cdn/memtracking/index.html");
-	  BaseAssignment.makeDirectoryandScreenshot(driver,scen_number);
+	  BaseAssignment.makeScreenshotFolder(driver,scen_number);
   }
   
   @Test

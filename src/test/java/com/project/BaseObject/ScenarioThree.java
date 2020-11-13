@@ -23,14 +23,14 @@ public class ScenarioThree {
 	  driver = BaseAssignment.returnDriver();
 	  driver.manage().window().maximize();
 	  driver.get("http://s3.amazonaws.com/co.tulip.cdn/memtracking/index.html");
-	  BaseAssignment.makeDirectoryandScreenshot(driver, scen_number);
+	  BaseAssignment.makeScreenshotFolder(driver, scen_number);
   }
 
   @Test
-  public void seleniumAssignmentScenario_3() throws IOException {
+  public void addToCartNUBookstore() throws IOException {
 	  
 	  
-	  BaseAssignment.takeScreenShot(driver, scen_number, 90);
+	  BaseAssignment.takeScreenShot(driver, scen_number, 90); //Use when screenshot needed, increment number
   }
   
   @AfterMethod

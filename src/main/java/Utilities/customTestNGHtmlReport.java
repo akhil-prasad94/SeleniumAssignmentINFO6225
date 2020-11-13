@@ -201,16 +201,6 @@ public class customTestNGHtmlReport implements IReporter {
 						retBuf.append(deltaTimeStr);
 						retBuf.append("</td>");
 						
-						/* Include groups. */
-						retBuf.append("<td>");
-						retBuf.append(this.stringArrayToString(testObj.getIncludedGroups()));
-						retBuf.append("</td>");
-						
-						/* Exclude groups. */
-						retBuf.append("<td>");
-						retBuf.append(this.stringArrayToString(testObj.getExcludedGroups()));
-						retBuf.append("</td>");
-						
 						retBuf.append("</tr>");
 					}
 				}
@@ -299,7 +289,7 @@ public class customTestNGHtmlReport implements IReporter {
 		}
 		
 		/* Get failed, passed or skipped test methods report. */
-		private String getTestMethodReport(String testName, IResultMap testResultMap, boolean passedReault, boolean skippedResult)
+		private String getTestMethodReport(String testName, IResultMap testResultMap, boolean passedResult, boolean skippedResult)
 		{
 			StringBuffer retStrBuf = new StringBuffer();
 			
@@ -313,7 +303,7 @@ public class customTestNGHtmlReport implements IReporter {
 				color = "yellow";
 			}else
 			{
-				if(!passedReault)
+				if(!passedResult)
 				{
 					resultTitle += " - Failed ";
 					color = "red";
@@ -330,92 +320,106 @@ public class customTestNGHtmlReport implements IReporter {
 				
 			for(ITestResult testResult : testResultSet)
 			{
-				String testClassName = "";
 				String testMethodName = "";
-				String startDateStr = "";
-				String executeTimeStr = "";
-				String paramStr = "";
-				String reporterMessage = "";
-				String exceptionMessage = "";
+				int testStatus =0;
+				String m1 = "addOptsMyFavorites";
+				String m2 = "browseClassesSpring21";
+				String m3 = "addToCartNUBookstore";
 				
-				//Get testClassName
-				testClassName = testResult.getTestClass().getName();
-					
+				
 				//Get testMethodName
 				testMethodName = testResult.getMethod().getMethodName();
-					
-				//Get startDateStr
-				long startTimeMillis = testResult.getStartMillis();
-				startDateStr = this.getDateInStringFormat(new Date(startTimeMillis));
-					
-				//Get Execute time.
-				long deltaMillis = testResult.getEndMillis() - testResult.getStartMillis();
-				executeTimeStr = this.convertDeltaTimeToString(deltaMillis);
-					
-				//Get parameter list.
-				Object paramObjArr[] = testResult.getParameters();
-				for(Object paramObj : paramObjArr)
-				{
-					paramStr += (String)paramObj;
-					paramStr += " ";
-				}
-					
-				//Get reporter message list.
-				List<String> repoterMessageList = Reporter.getOutput(testResult);
-				for(String tmpMsg : repoterMessageList)				
-				{
-					reporterMessage += tmpMsg;
-					reporterMessage += " ";
-				}
-					
-				//Get exception message.
-				Throwable exception = testResult.getThrowable();
-				if(exception!=null)
-				{
-					StringWriter sw = new StringWriter();
-					PrintWriter pw = new PrintWriter(sw);
-					exception.printStackTrace(pw);
-					
-					exceptionMessage = sw.toString();
-				}
 				
+				testStatus = testResult.getStatus();	
+
 				retStrBuf.append("<tr bgcolor=" + color + ">");
-				
-				/* Add test class name. */
-				retStrBuf.append("<td>");
-				retStrBuf.append(testClassName);
-				retStrBuf.append("</td>");
 				
 				/* Add test method name. */
 				retStrBuf.append("<td>");
-				retStrBuf.append(testMethodName);
+				if(testMethodName.equals(m1))
+				retStrBuf.append("Verify if user is able to add options in My Favoites");
+				else if(testMethodName.equals(m2))
+				retStrBuf.append("Verify if user is able to browse courses");
+				else
+				retStrBuf.append("Verify if user is able to add items to cart in NU Book store");
 				retStrBuf.append("</td>");
 				
-				/* Add start time. */
+				
+				if(testMethodName.equals(m1))
+				{
+					/* Add Expected for first. */
+					retStrBuf.append("<td>");
+					retStrBuf.append("User is able to add OPTIONS in My Favorites");
+					retStrBuf.append("</td>");
+					/* Add Actual for first. */
+					if(testStatus == 1)
+					{
 				retStrBuf.append("<td>");
-				retStrBuf.append(startDateStr);
+				retStrBuf.append("User is able to add OPTIONS in My Favorites");
 				retStrBuf.append("</td>");
-				
-				/* Add execution time. */
+					}
+					else {
+						retStrBuf.append("<td>");
+						retStrBuf.append("User is NOT able to add OPTIONS in My Favorites ");
+						retStrBuf.append("</td>");
+					}
+			
+				}
+				else if(testMethodName.equals(m2))
+				{
+					/* Add Expected for second. */
+					retStrBuf.append("<td>");
+					retStrBuf.append("User is able to  BROWSE CLASS for Spring 2021");
+					retStrBuf.append("</td>");
+					/* Add Actual for second. */
+					if(testStatus == 1)
+					{
 				retStrBuf.append("<td>");
-				retStrBuf.append(executeTimeStr);
+				retStrBuf.append("User is able to  BROWSE CLASS for Spring 2021");
 				retStrBuf.append("</td>");
+					}
+					else {
+						retStrBuf.append("<td>");
+						retStrBuf.append("User is NOT able to BROWSE CLASS for Spring 2021 ");
+						retStrBuf.append("</td>");
+					}
 				
-				/* Add parameter. */
+				}else if(testMethodName.equals(m3))
+				{
+					
+					/* Add Expected for third. */
+					retStrBuf.append("<td>");
+					retStrBuf.append("User is able to ADD ITEMS to cart NU Bookstore");
+					retStrBuf.append("</td>");
+					
+					/* Add Actual for second. */
+					if(testStatus == 1)
+					{
 				retStrBuf.append("<td>");
-				retStrBuf.append(paramStr);
+				retStrBuf.append("User is able to ADD ITEMS to cart NU Bookstore");
 				retStrBuf.append("</td>");
+					}
+					else {
+						retStrBuf.append("<td>");
+						retStrBuf.append("User is NOT able to ADD ITEMS to cart in NU Bookstore");
+						retStrBuf.append("</td>");
+					}
+					
+				}
 				
-				/* Add reporter message. */
+				
+				
+				if(testStatus == 1)
+				{
 				retStrBuf.append("<td>");
-				retStrBuf.append(reporterMessage);
+				retStrBuf.append("PASS");
 				retStrBuf.append("</td>");
-				
-				/* Add exception message. */
+				}
+				else {
 				retStrBuf.append("<td>");
-				retStrBuf.append(exceptionMessage);
-				retStrBuf.append("</td>");
-				
+				retStrBuf.append("FAIL");
+				retStrBuf.append("</td>");	
+				}		
 				retStrBuf.append("</tr>");
 
 			}
