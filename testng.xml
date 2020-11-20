@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test name="Test">
+<suite name="Assignment_INFO6225" >
+<listeners>
+	<listener class-name="Utilities.customTestNGHtmlReport"/>
+</listeners>
+
+   <!-- MyNEU portal -->
+  <test name="SeleniumAssignment_INFO6225 - MyNEU Portal" >
+  <parameter name="northeasternURL" value="https://my.northeastern.edu/"></parameter>
   		<classes>
-  			<class name="com.project.BaseObject.ScenarioOne"></class>
-  			<class name="com.project.BaseObject.ScenarioTwo"></class>
-  			<class name="com.project.BaseObject.ScenarioThree"></class>
-  			<class name="com.project.BaseObject.ScenarioFour"></class>
+ 		        <class name="com.project.BaseObject.ScenarioAddOpts"></class>
+  	            <class name="com.project.BaseObject.ScenarioBrowseCourseSpring21"></class>
   		</classes>
   </test> <!-- Test -->
+   
+   <!-- NEU STORE -->
+   <test name="SeleniumAssignment_INFO6225 - Book store" >
+  <parameter name="northeasternBookstoreURL" value="https://northeastern.bncollege.com/shop/northeastern/home"></parameter>
+  		<classes>
+  		       <class name="com.project.BaseObject.ScenarioAddToCartNEUStore"></class> 
+  		</classes>
+  </test>
 </suite> <!-- Suite -->
 	

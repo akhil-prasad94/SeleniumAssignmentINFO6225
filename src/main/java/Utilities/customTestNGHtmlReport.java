@@ -40,7 +40,7 @@ public class customTestNGHtmlReport implements IReporter {
 	
 
 	//This is the customize emailabel report template file path.
-		private static final String emailableReportTemplateFile = "C:/Users/akhil/Desktop/TestFramework/test-output/custom_Report.xml";
+		private static final String emailableReportTemplateFile = ".\\test-output\\custom_Report.xml";
 		@Override
 		public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 			
@@ -68,7 +68,7 @@ public class customTestNGHtmlReport implements IReporter {
 				customReportTemplateStr = customReportTemplateStr.replaceAll("\\$Test_Case_Detail\\$", customTestMethodSummary);
 				
 				// Write replaced test report content to custom-emailable-report.html.
-				File targetFile = new File(outputDirectory + "/custom-emailable-report.html");
+				File targetFile = new File(outputDirectory + "/customized-emailable-report.html");
 				FileWriter fw = new FileWriter(targetFile);
 				fw.write(customReportTemplateStr);
 				fw.flush();
@@ -295,26 +295,26 @@ public class customTestNGHtmlReport implements IReporter {
 			
 			String resultTitle = testName;
 			
-			String color = "green";
+			//String color = "green";
 			
 			if(skippedResult)
 			{
 				resultTitle += " - Skipped ";
-				color = "yellow";
+				//color = "yellow";
 			}else
 			{
 				if(!passedResult)
 				{
 					resultTitle += " - Failed ";
-					color = "red";
+					//color = "red";
 				}else
 				{
 					resultTitle += " - Passed ";
-					color = "green";
+					//color = "green";
 				}
 			}
 			
-			retStrBuf.append("<tr bgcolor=" + color + "><td colspan=7><center><b>" + resultTitle + "</b></center></td></tr>");
+			retStrBuf.append("<tr<td colspan=7><center><b>" + resultTitle + "</b></center></td></tr>");
 				
 			Set<ITestResult> testResultSet = testResultMap.getAllResults();
 				
@@ -332,14 +332,14 @@ public class customTestNGHtmlReport implements IReporter {
 				
 				testStatus = testResult.getStatus();	
 
-				retStrBuf.append("<tr bgcolor=" + color + ">");
+				//retStrBuf.append("<tr bgcolor=" + color + ">");
 				
 				/* Add test method name. */
 				retStrBuf.append("<td>");
 				if(testMethodName.equals(m1))
 				retStrBuf.append("Verify if user is able to add options in My Favoites");
 				else if(testMethodName.equals(m2))
-				retStrBuf.append("Verify if user is able to browse courses");
+				retStrBuf.append("Verify if user is able to browse classes for Spring 2021");
 				else
 				retStrBuf.append("Verify if user is able to add items to cart in NU Book store");
 				retStrBuf.append("</td>");
@@ -406,9 +406,7 @@ public class customTestNGHtmlReport implements IReporter {
 					}
 					
 				}
-				
-				
-				
+
 				if(testStatus == 1)
 				{
 				retStrBuf.append("<td>");

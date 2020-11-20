@@ -8,18 +8,24 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 public class BaseAssignment {
 	static File filess;
 	static WebDriver driver;
-	
+	public static SoftAssert softassert;
+
 	public static WebDriver returnDriver()
 	{
-	  System.setProperty("webdriver.chrome.driver", "C:\\chromedrivernew.exe");
+	  System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+	  //System.setProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
+	  softassert = new SoftAssert();
 	  return driver = new ChromeDriver();
 	}
 
-	public static void makeScreenshotFolder(WebDriver driver, String testScenarioName) throws IOException {
+	public static void makeScreenshotFolder(String testScenarioName) throws IOException {
 		String finalpath = System.getProperty("user.dir")+"\\"+testScenarioName;
 		filess = new File(finalpath);
 		filess.mkdir();
@@ -40,4 +46,7 @@ public class BaseAssignment {
 		File screenshotfile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
 		FileUtils.copyFile(screenshotfile, new File(abpath, n+".png"));
 	} 
+	
+
+	
 }
