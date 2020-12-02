@@ -11,9 +11,11 @@ import Utilities.BaseAssignment;
 import Utilities.Properties_Project;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
@@ -32,10 +34,16 @@ public class ScenarioAddToCartNEUStore {
 	 public ExtentTest test;
 	 SoftAssert softassert = new SoftAssert();
 	 
+	 @BeforeTest
+	 @Parameters({"runtype"})
+	 public void runSetup(String runtype) throws MalformedURLException
+	 {
+		 driver = BaseAssignment.returnDriver(runtype);
+	 }
+	 
   @BeforeMethod
-  @Parameters({"northeasternBookstoreURL"})
-  public void beforeMethod(String nUrl) throws IOException {
-	  driver = BaseAssignment.returnDriver();
+  @Parameters({"northeasternBookstoreURL,runtype"})
+  public void beforeMethod(String nUrl, String runtype) throws IOException {
 	  driver.manage().window().maximize();
 	  driver.get(nUrl);
 	  BaseAssignment.makeScreenshotFolder(scen_number);

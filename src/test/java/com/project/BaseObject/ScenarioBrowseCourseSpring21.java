@@ -10,6 +10,7 @@ import Utilities.BaseAssignment;
 import Utilities.Properties_Project;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -23,6 +24,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 public class ScenarioBrowseCourseSpring21 {
@@ -33,10 +35,17 @@ public class ScenarioBrowseCourseSpring21 {
 	 public static ExtentReports extent;
 	 public ExtentTest test;
 	
+	 
+  @BeforeTest
+  @Parameters({"runtype"})
+  public void runSetup(String runtype) throws MalformedURLException
+  {
+	 driver = BaseAssignment.returnDriver(runtype);
+  }
+	 
   @BeforeMethod
-  @Parameters({"northeasternURL"})
-  public void beforeMethod(String nbookURL) throws IOException {
-	  driver = BaseAssignment.returnDriver();
+  @Parameters({"northeasternURL,runtype"})
+  public void beforeMethod(String nbookURL, String runtype) throws IOException {
 	  driver.manage().window().maximize();
 	  driver.get(nbookURL);
 	  BaseAssignment.makeScreenshotFolder(scen_number);
