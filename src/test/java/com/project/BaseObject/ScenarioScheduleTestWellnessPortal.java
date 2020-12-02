@@ -10,6 +10,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -28,6 +29,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import Utilities.BaseAssignment;
 import Utilities.Properties_Project;
@@ -44,12 +46,17 @@ public class ScenarioScheduleTestWellnessPortal {
 	 public static ExtentReports extent;
 	 public ExtentTest test;
 	 
-   
+	 @BeforeTest
+	 @Parameters({"runtype"})
+	 public void runSetup(String runtype) throws MalformedURLException
+	 {
+		 driver = BaseAssignment.returnDriver(runtype);
+	 } 
   @BeforeMethod
-  @Parameters({"northeasternURL,runtype"})
-  public void beforeMethod(String nUrl, String runtype) throws IOException {
+  @Parameters({"northeasternURL"})
+  public void beforeMethod(String nUrl) throws IOException {
 	 
-	  driver = BaseAssignment.returnDriver(runtype);
+	 
 	  driver.manage().window().maximize();
 	  driver.get(nUrl);
 	  BaseAssignment.makeScreenshotFolder(scen_number);
@@ -121,7 +128,7 @@ public class ScenarioScheduleTestWellnessPortal {
 		extent.endTest(test);
 		extent.flush();
 		
-		System.out.println("SCENARIO1 - ADD OPTIONS TO MY FAVORITES - PASSED");
+		System.out.println("SCENARIO5 - SCHEDULE TEST THROUGH WELLNESS PORTAL  - PASSED");
   }
 
   @AfterMethod

@@ -44,8 +44,8 @@ public class ScenarioBrowseCourseSpring21 {
   }
 	 
   @BeforeMethod
-  @Parameters({"northeasternURL,runtype"})
-  public void beforeMethod(String nbookURL, String runtype) throws IOException {
+  @Parameters({"northeasternURL"})
+  public void beforeMethod(String nbookURL) throws IOException {
 	  driver.manage().window().maximize();
 	  driver.get(nbookURL);
 	  BaseAssignment.makeScreenshotFolder(scen_number);

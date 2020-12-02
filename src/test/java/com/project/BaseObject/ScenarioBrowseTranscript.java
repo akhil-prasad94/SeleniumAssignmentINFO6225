@@ -46,8 +46,8 @@ public class ScenarioBrowseTranscript {
 	 
 
   @BeforeMethod
-  @Parameters({"northeasternURL,runtype"})
-  public void beforeMethod(String nURL, String runtype) throws IOException {
+  @Parameters({"northeasternURL"})
+  public void beforeMethod(String nURL) throws IOException {
 	  driver.manage().window().maximize();
 	  driver.get(nURL);
 	  BaseAssignment.makeScreenshotFolder(scen_number);

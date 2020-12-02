@@ -19,7 +19,7 @@ import org.testng.asserts.SoftAssert;
 public class BaseAssignment {
 	static File filess;
 	static WebDriver driver;
-	public static final String URL = "https://akhilprasad94:61cfad4d-9789-4770-821a-90f5af68bc53@ondemand.us-west-1.saucelabs.com:443/wd/hub";
+	public static final String URL = "https://(username):61cfad4d-9789-4770-821a-90f5af68bc53@ondemand.us-west-1.saucelabs.com:443/wd/hub";
 
 	public static WebDriver returnDriver(String runtype) throws MalformedURLException
 	{

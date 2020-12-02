@@ -42,8 +42,8 @@ public class ScenarioAddToCartNEUStore {
 	 }
 	 
   @BeforeMethod
-  @Parameters({"northeasternBookstoreURL,runtype"})
-  public void beforeMethod(String nUrl, String runtype) throws IOException {
+  @Parameters({"northeasternBookstoreURL"})
+  public void beforeMethod(String nUrl) throws IOException {
 	  driver.manage().window().maximize();
 	  driver.get(nUrl);
 	  BaseAssignment.makeScreenshotFolder(scen_number);
